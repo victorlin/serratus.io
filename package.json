@@ -46,5 +46,9 @@
     "postcss-cli": "^7.1.1",
     "react-snap": "^1.23.0",
     "tailwindcss": "^1.4.6"
+  },
+  "reactSnap": {
+    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
+    "puppeteerExecutablePath": "/opt/google/chrome/google-chrome"
   }
 }
