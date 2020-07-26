@@ -43,6 +43,7 @@
   "devDependencies": {
     "autoprefixer": "^9.8.0",
     "postcss-cli": "^7.1.1",
+    "react-snap": "^1.23.0",
     "tailwindcss": "^1.4.6"
   }
 }
