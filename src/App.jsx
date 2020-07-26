@@ -8,6 +8,7 @@ import Mission from './pages/Mission';
 import Technology from './pages/Technology';
 import Report from './pages/Report';
 import Query from './pages/Query';
+import Table from './pages/Table';
 
 const App = () => {
   const location = useLocation()
@@ -26,6 +27,7 @@ const App = () => {
         <Route exact path="/technology" component={Technology} />
         <Route exact path="/query" component={Query} />
         <Route exact path="/report" component={Report} />
+        <Route exact path="/table" component={Table} />
       </Switch>
     </div>
   );
