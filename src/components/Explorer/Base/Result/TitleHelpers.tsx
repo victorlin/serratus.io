@@ -5,10 +5,11 @@ export async function getRunTitle(runId: string) {
 }
 
 export async function getSequenceTitle(sequenceId: string) {
-    const sequenceIdCorrected = getCorrectedSequenceId(sequenceId)
-    if (sequenceId !== sequenceIdCorrected) {
-        const genbankTitle = await tryGetGenBankTitle(sequenceIdCorrected)
-        return `[AMR] ${genbankTitle}`
+    const fromAMR = Boolean(sequenceId.match(/.*_\d{7}/g))
+    if (fromAMR) {
+        sequenceId = sequenceId.slice(0, sequenceId.lastIndexOf('_')) // get GenBank ID from AMR ID
+        const genBankTitle = await tryGetGenBankTitle(sequenceId)
+        return `[AMR] ${genBankTitle}`
     } else {
         return await tryGetGenBankTitle(sequenceId)
     }
@@ -19,13 +20,4 @@ export async function getFamilyTitle(family: string) {
         return 'The Comprehensive Antibiotic Resistance Database (CARD)'
     }
     return ''
-}
-
-function getCorrectedSequenceId(sequenceId: string) {
-    const patternForAMR = /.*_\d{7}/g
-    const isFromAMR = sequenceId.match(patternForAMR)
-    if (isFromAMR) {
-        return sequenceId.slice(0, sequenceId.lastIndexOf('_'))
-    }
-    return sequenceId
 }
