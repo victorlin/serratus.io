@@ -69,6 +69,8 @@ These are checked on pull requests (PRs) using a GitHub Actions workflow.
 - The build is set to break on a custom set of `eslint` rule violations. They should be fixed before merging a PR.
 - Run `npm run prettier` to standardize code style for a PR.
 
+### Writing Tests
+
 ## Submitting Changes
 
 - Push your changes to a topic branch in your fork of the repository.
